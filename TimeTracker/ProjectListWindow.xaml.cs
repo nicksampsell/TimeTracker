@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeTracker.Models;
 
 namespace TimeTracker
 {
@@ -22,6 +24,14 @@ namespace TimeTracker
         public ProjectListWindow()
         {
             InitializeComponent();
+
+            using var db = new TimeTrackerContext();
+            //db.Add(new Project { DepartmentId = 1, Title = "A Test Project", AllocatedHours = 10, Created = DateTime.Now });
+            //db.Add(new Project { DepartmentId = 1, Title = "Another Department 1 Test Project", AllocatedHours = 5, Created = DateTime.Now });
+            //db.Add(new Project { DepartmentId = 2, Title = "A Second Test Project", AllocatedHours = 10, Created = DateTime.Now });
+            //db.SaveChanges();
+
+            lvProjects.ItemsSource = db.Projects.Include(db2 => db2.Department).ToList();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

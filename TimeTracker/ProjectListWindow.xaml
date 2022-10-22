@@ -20,8 +20,8 @@
                     <GridView>
                         <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding Id}"/>
                         <GridViewColumn Header="Project Name" Width="275" DisplayMemberBinding="{Binding Title}" />
-                        <GridViewColumn Header="Department" Width="175" DisplayMemberBinding="{Binding Department}" />
-                        <GridViewColumn Header="Alloc. Time" Width="Auto" DisplayMemberBinding="{Binding AllocatedTime}" />
+                        <GridViewColumn Header="Department" Width="175" DisplayMemberBinding="{Binding Department.Title}" />
+                        <GridViewColumn Header="Alloc. Time" Width="Auto" DisplayMemberBinding="{Binding AllocatedHours}" />
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeTracker.Models;
 
 namespace TimeTracker
 {
@@ -19,9 +21,16 @@ namespace TimeTracker
     /// </summary>
     public partial class DepartmentListWindow : Window
     {
+
+        
+
         public DepartmentListWindow()
         {
             InitializeComponent();
+            using var db = new TimeTrackerContext();
+            lvDepartments.ItemsSource = db.Departments.ToList();
+
+            
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
