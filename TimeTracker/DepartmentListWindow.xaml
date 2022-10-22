@@ -1,0 +1,29 @@
+﻿<Window x:Class="TimeTracker.DepartmentListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeTracker"
+        mc:Ignorable="d"
+        Title="Department Manager : Time Tracker" Height="450" Width="400">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Department"></MenuItem>
+                <MenuItem Header="E_xit" Click="Exit_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <StackPanel Orientation="Vertical">
+            <TextBlock FontSize="24" Margin="10 10 10 5">Manage Departments</TextBlock>
+                <ListView Margin="10 5 10 10" Name="lvDepartments">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Department Name" Width="Auto" DisplayMemberBinding="{Binding Title}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+    </DockPanel>
+</Window>
