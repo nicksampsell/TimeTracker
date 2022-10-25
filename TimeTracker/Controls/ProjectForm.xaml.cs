@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeTracker.Models;
 
 namespace TimeTracker.Controls
 {
@@ -54,7 +55,12 @@ namespace TimeTracker.Controls
         public ProjectForm()
         {
             InitializeComponent();
-           
+            using var db = new TimeTrackerContext();
+
+
+            frmDepartment.DataContext = db.Departments.ToList();
+            frmDepartment.DisplayMemberPath = "Title";
+
         }
     }
 }

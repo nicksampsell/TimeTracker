@@ -1,0 +1,14 @@
+﻿<Window x:Class="TimeTracker.ProjectAddForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeTracker"
+        xmlns:uc="clr-namespace:TimeTracker.Controls"
+        mc:Ignorable="d"
+        Title="Create Project : Time Tracker" Height="325" Width="470">
+    <StackPanel Margin="10">
+        <TextBlock Style="{StaticResource Header}">Create Project</TextBlock>
+        <uc:ProjectForm></uc:ProjectForm>
+    </StackPanel>
+</Window>

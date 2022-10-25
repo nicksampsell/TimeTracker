@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -38,5 +39,17 @@ namespace TimeTracker
         {
             this.Close();
         }
+
+        private void Edit_ClickAction(object sender, RoutedEventArgs e)
+        {
+            var project = lvProjects.SelectedItem as Project;
+
+            if (lvProjects != null)
+            {
+                ProjectEditForm pef = new ProjectEditForm(project.Id);
+                pef.Show();
+            }
+        }
+
     }
 }

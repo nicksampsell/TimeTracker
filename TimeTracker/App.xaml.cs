@@ -16,11 +16,7 @@ namespace TimeTracker
     {
         public App()
         {
-            DepartmentListWindow dlw = new();
-            dlw.Show();
 
-            ProjectListWindow plw = new();
-            plw.Show();
         }
     }
 

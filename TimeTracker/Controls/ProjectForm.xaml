@@ -25,7 +25,7 @@
 
         <Label Grid.Row="1">Department:</Label>
         <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmDepartment">
-            </ComboBox>
+        </ComboBox>
 
         <Label Grid.Row="2">Project Description:</Label>
         <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" Height="100" 
