@@ -39,6 +39,6 @@
         <Label Grid.Row="4">Is Completed?:</Label>
         <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="frmIsCompleted" Content="Yes" />
 
-        <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Submit</Button>
+        <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="frmSubmit_Click">Submit</Button>
     </Grid>
 </UserControl>

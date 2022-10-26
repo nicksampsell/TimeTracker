@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:TimeTracker" 
         xmlns:uc="clr-namespace:TimeTracker.Controls"
         mc:Ignorable="d"
-        Title="Edit Project : Time Tracker" Height="325" Width="470">
+        Title="Edit Project : Time Tracker" Height="350" Width="470">
     <StackPanel Margin="10">
         <TextBlock Style="{StaticResource Header}">Edit Project</TextBlock>
-        <uc:ProjectForm x:Name="editForm"></uc:ProjectForm>
+        <uc:ProjectForm x:Name="editForm" OnButtonClick="Button_Click"></uc:ProjectForm>
     </StackPanel>
 </Window>

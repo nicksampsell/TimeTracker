@@ -52,6 +52,11 @@ namespace TimeTracker.Controls
             set { frmIsCompleted.IsChecked = value; }
         }
 
+        public delegate void MyControlClickEvent(object sender, RoutedEventArgs e);
+        public event MyControlClickEvent OnButtonClick;
+
+        public EventHandler ButtonClicked;
+
         public ProjectForm()
         {
             InitializeComponent();
@@ -61,6 +66,11 @@ namespace TimeTracker.Controls
             frmDepartment.DataContext = db.Departments.ToList();
             frmDepartment.DisplayMemberPath = "Title";
 
+        }
+
+        private void frmSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            this.OnButtonClick?.Invoke(sender, e);
         }
     }
 }

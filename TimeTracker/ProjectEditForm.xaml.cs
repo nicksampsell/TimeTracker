@@ -21,6 +21,9 @@ namespace TimeTracker
     /// </summary>
     public partial class ProjectEditForm : Window
     {
+        TimeTrackerContext db = new TimeTrackerContext();
+        Project? currentItem;
+
         public ProjectEditForm(int? projectId = null)
         {
             InitializeComponent();
@@ -30,18 +33,22 @@ namespace TimeTracker
                 this.Close();
             }
 
-            using var db = new TimeTrackerContext();
+            currentItem = db.Projects.Include(db2 => db2.Department).First(i => i.Id == projectId);
 
-            var item = db.Projects.Include(db2 => db2.Department).First(i => i.Id == projectId);
-
-            if(item != null)
+            if(currentItem != null)
             {
-                editForm.Title = item.Title ?? "";
-                editForm.Description = item.Description ?? "";
-                editForm.AllocatedHours = item.AllocatedHours.ToString();
-                editForm.frmIsCompleted.IsChecked = (bool)item.IsCompleted;
-                editForm.frmDepartment.SelectedValue = item.Department.Title;
+                editForm.Title = currentItem.Title ?? "";
+                editForm.Description = currentItem.Description ?? "";
+                editForm.AllocatedHours = currentItem.AllocatedHours.ToString();
+                editForm.frmIsCompleted.IsChecked = (bool)currentItem.IsCompleted;
+                editForm.frmDepartment.SelectedValue = currentItem.Department.Title;
             }
+        }
+
+        private void Button_Click(object Sender, RoutedEventArgs e)
+        {
+            currentItem.Title = 
+            MessageBox.Show(currentItem.Title);
         }
     }
 }
