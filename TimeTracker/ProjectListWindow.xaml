@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:TimeTracker"
         mc:Ignorable="d"
         Title="Project Manager : Time Tracker" Height="450" Width="600">
+    <Window.Resources>
+        <Style x:Key="itemstyle" TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -15,7 +20,7 @@
         </Menu>
         <StackPanel Orientation="Vertical">
             <TextBlock FontSize="24" Margin="10 10 10 5">Manage Projects</TextBlock>
-            <ListView Margin="10 5 10 10" Name="lvProjects">
+            <ListView Margin="10 5 10 10" Name="lvProjects" ItemContainerStyle="{StaticResource itemstyle}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding Id}"/>

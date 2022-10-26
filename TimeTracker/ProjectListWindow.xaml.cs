@@ -26,7 +26,11 @@ namespace TimeTracker
         {
             InitializeComponent();
 
+
             using var db = new TimeTrackerContext();
+            //db.Add(new Department { Title = "Personnel" });
+            //db.Add(new Department { Title = "County Clerk" });
+            //db.Add(new Department { Title = "District Attorney" });
             //db.Add(new Project { DepartmentId = 1, Title = "A Test Project", AllocatedHours = 10, Created = DateTime.Now });
             //db.Add(new Project { DepartmentId = 1, Title = "Another Department 1 Test Project", AllocatedHours = 5, Created = DateTime.Now });
             //db.Add(new Project { DepartmentId = 2, Title = "A Second Test Project", AllocatedHours = 10, Created = DateTime.Now });
@@ -40,7 +44,19 @@ namespace TimeTracker
             this.Close();
         }
 
+
         private void Edit_ClickAction(object sender, RoutedEventArgs e)
+        {
+            var project = lvProjects.SelectedItem as Project;
+
+            if (lvProjects != null)
+            {
+                ProjectEditForm pef = new ProjectEditForm(project.Id);
+                pef.Show();
+            }
+        }
+
+        private void HandleDoubleClick(object sender, RoutedEventArgs e)
         {
             var project = lvProjects.SelectedItem as Project;
 
