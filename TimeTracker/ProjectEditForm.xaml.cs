@@ -41,7 +41,7 @@ namespace TimeTracker
                 editForm.Description = currentItem.Description ?? "";
                 editForm.AllocatedHours = currentItem.AllocatedHours.ToString();
                 editForm.frmIsCompleted.IsChecked = (bool)currentItem.IsCompleted;
-                editForm.frmDepartment.SelectedValue = currentItem.Department;
+                editForm.frmDepartment.SelectedValue = currentItem.Department.Id;
             }
         }
 
