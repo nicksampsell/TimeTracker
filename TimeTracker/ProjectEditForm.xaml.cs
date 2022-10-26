@@ -47,7 +47,6 @@ namespace TimeTracker
 
         private void Button_Click(object Sender, RoutedEventArgs e)
         {
-            currentItem.Title = 
             MessageBox.Show(currentItem.Title);
         }
     }
