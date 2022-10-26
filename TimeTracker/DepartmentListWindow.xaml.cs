@@ -27,10 +27,12 @@ namespace TimeTracker
         public DepartmentListWindow()
         {
             InitializeComponent();
-            using var db = new TimeTrackerContext();
-            lvDepartments.ItemsSource = db.Departments.ToList();
+            using (var db = new TimeTrackerContext())
+            {
+                lvDepartments.ItemsSource = db.Departments.ToList();
+            }
 
-            
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

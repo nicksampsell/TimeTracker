@@ -61,10 +61,9 @@ namespace TimeTracker.Controls
         {
             InitializeComponent();
             using var db = new TimeTrackerContext();
-
-
-            frmDepartment.DataContext = db.Departments.ToList();
+            frmDepartment.ItemsSource = db.Departments.ToList();
             frmDepartment.DisplayMemberPath = "Title";
+            frmDepartment.SelectedValuePath = "Id";
 
         }
 
@@ -72,5 +71,6 @@ namespace TimeTracker.Controls
         {
             this.OnButtonClick?.Invoke(sender, e);
         }
+
     }
 }
