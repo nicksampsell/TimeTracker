@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TimeTracker"
              xmlns:uc="clr-namespace:TimeTracker.Controls"
+             xmlns:validation="clr-namespace:TimeTracker.FormValidation"
              StartupUri="ProjectListWindow.xaml">
     <Application.Resources>
         <Style TargetType="MenuItem">
@@ -15,19 +16,22 @@
         <Style TargetType="Button">
             <Setter Property="Padding" Value="3 2"></Setter>
         </Style>
-        <Style x:Key="textBoxInError" TargetType="{x:Type TextBox}">
+        <Style x:Key="TextBoxInError" TargetType="{x:Type TextBox}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="true">
                     <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
                         Path=(Validation.Errors)/ErrorContent}"/>
+                    <Setter Property="BorderBrush" Value="Red"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
                 </Trigger>
+
             </Style.Triggers>
         </Style>
-        <ControlTemplate x:Key="validationTemplate">
-            <DockPanel>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
                 <AdornedElementPlaceholder/>
-            </DockPanel>
+            </StackPanel>
         </ControlTemplate>
     </Application.Resources>
 </Application>
