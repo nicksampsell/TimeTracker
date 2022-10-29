@@ -29,7 +29,7 @@
             <TextBox.Text>
                 <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <validation:TextBoxValidation />
+                        <validation:TextBoxValidation AllowLineBreaks="False" />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -62,7 +62,7 @@
             <TextBox.Text>
                 <Binding Path="AllocatedHours" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <validation:TextBoxValidation />
+                        <validation:TextBoxValidation AllowLetters="False" AllowLineBreaks="False" AllowSpaces="False" AllowSpecialChars="False" />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
