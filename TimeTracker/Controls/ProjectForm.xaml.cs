@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TimeTracker.Models;
+using TimeTracker.Controls;
+using System.Collections.ObjectModel;
 
 namespace TimeTracker.Controls
 {
@@ -21,36 +23,14 @@ namespace TimeTracker.Controls
     /// </summary>
     public partial class ProjectForm : UserControl
     {
-        public string Title
-        {
-            get { return frmTitle.Text; }
-            set { frmTitle.Text = value; }
-        }
-
-        public string Department
-        {
-            get { return frmDepartment.Text; }
-            set { frmDepartment.Text = value; }
-        }
-
-        public string Description
-        {
-            get { return frmDescription.Text; }
-            set { frmDescription.Text = value; }
-        }
-
-        public string AllocatedHours
-        {
-            get { return frmAllocatedHours.Text; }
-            set { frmAllocatedHours.Text = value; }
-        }
-
-        public Boolean IsCompleted
-        {
-            get { return (bool)frmIsCompleted.IsChecked; }
-
-            set { frmIsCompleted.IsChecked = value; }
-        }
+        public string Title { get; set; }
+        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
+        public string Description { get; set; }
+        public int AllocatedHours { get; set; } = 0;
+        public bool IsCompleted { get; set; } = false;
+        public Object Data { get; set; }
+        public int Selection { get; set; }
 
         public delegate void MyControlClickEvent(object sender, RoutedEventArgs e);
         public event MyControlClickEvent OnButtonClick;
@@ -60,10 +40,13 @@ namespace TimeTracker.Controls
         public ProjectForm()
         {
             InitializeComponent();
+
             using var db = new TimeTrackerContext();
+            //frmDepartment.ItemsSource = db.Departments.ToList();
             frmDepartment.ItemsSource = db.Departments.ToList();
+            this.DataContext = this;
             frmDepartment.DisplayMemberPath = "Title";
-            frmDepartment.SelectedValuePath = "Id";
+
 
         }
 

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TimeTracker.Models;
 
+
 namespace TimeTracker
 {
     /// <summary>
@@ -37,11 +38,12 @@ namespace TimeTracker
 
             if(currentItem != null)
             {
-                editForm.Title = currentItem.Title ?? "";
-                editForm.Description = currentItem.Description ?? "";
-                editForm.AllocatedHours = currentItem.AllocatedHours.ToString();
-                editForm.frmIsCompleted.IsChecked = (bool)currentItem.IsCompleted;
-                editForm.frmDepartment.SelectedValue = currentItem.Department.Id;
+                editForm.DataContext = currentItem;
+                //editForm.Title = currentItem.Title ?? "";
+                //editForm.Description = currentItem.Description ?? "";
+                //editForm.AllocatedHours = currentItem.AllocatedHours.ToString();
+                //editForm.frmIsCompleted.IsChecked = (bool)currentItem.IsCompleted;
+                //editForm.frmDepartment.SelectedValue = currentItem.Department.Id;
             }
         }
 

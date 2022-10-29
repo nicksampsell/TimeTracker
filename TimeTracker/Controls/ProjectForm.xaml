@@ -21,23 +21,25 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0">Project Title:</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmTitle"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmTitle" Text="{Binding Title}"></TextBox>
 
         <Label Grid.Row="1">Department:</Label>
-        <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmDepartment">
+        <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" 
+                  HorizontalAlignment="Left" Width="300" x:Name="frmDepartment" 
+                  SelectedValue="{Binding Department}">
         </ComboBox>
 
         <Label Grid.Row="2">Project Description:</Label>
         <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" Height="100" 
-                 TextWrapping="WrapWithOverflow" AcceptsReturn="True" x:Name="frmDescription"></TextBox>
+                 TextWrapping="WrapWithOverflow" AcceptsReturn="True" x:Name="frmDescription" Text="{Binding Description}"></TextBox>
 
         <Label Grid.Row="3">Allocated Hours:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmAllocatedHours"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmAllocatedHours" Text="{Binding AllocatedHours}"></TextBox>
 
         
         
         <Label Grid.Row="4">Is Completed?:</Label>
-        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="frmIsCompleted" Content="Yes" />
+        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="frmIsCompleted" Content="Yes" IsChecked="{Binding IsCompleted}" />
 
         <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="frmSubmit_Click">Submit</Button>
     </Grid>

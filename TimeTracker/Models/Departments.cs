@@ -12,5 +12,20 @@ namespace TimeTracker.Models
         public string? Title { get; set; }
         public List<Project> Projects { get; } = new();
         public List<WorkPeriod> WorkPeriods { get; } = new();
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Department);
+        }
+
+        public bool Equals(Department dept)
+        {
+            return dept != null && dept.Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id & Title.GetHashCode();
+        }
     }
 }
