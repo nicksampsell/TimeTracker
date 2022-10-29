@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TimeTracker.Controls"
+             xmlns:local="clr-namespace:TimeTracker.Controls" 
+             xmlns:val="clr-namespace:TimeTracker.Validation" 
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="450">
     <Grid Background="White">
@@ -21,7 +22,16 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0">Project Title:</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmTitle" Text="{Binding Title}"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                 Width="300" x:Name="frmTitle">
+            <TextBox.Text>
+                <Binding Path="Title" Source="{Binding DataSource}" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:TextBoxValidation AllowNumbers="False"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <Label Grid.Row="1">Department:</Label>
         <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" 

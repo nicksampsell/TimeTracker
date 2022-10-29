@@ -15,5 +15,19 @@
         <Style TargetType="Button">
             <Setter Property="Padding" Value="3 2"></Setter>
         </Style>
+        <Style x:Key="textBoxInError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)/ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
     </Application.Resources>
 </Application>
