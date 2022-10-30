@@ -39,17 +39,12 @@ namespace TimeTracker
             if(currentItem != null)
             {
                 editForm.DataContext = currentItem;
-                //editForm.Title = currentItem.Title ?? "";
-                //editForm.Description = currentItem.Description ?? "";
-                //editForm.AllocatedHours = currentItem.AllocatedHours.ToString();
-                //editForm.frmIsCompleted.IsChecked = (bool)currentItem.IsCompleted;
-                //editForm.frmDepartment.SelectedValue = currentItem.Department.Id;
             }
         }
 
         private void Button_Click(object Sender, RoutedEventArgs e)
         {
-            MessageBox.Show(currentItem.Title);
+            //figure out how to update the entity
         }
     }
 }

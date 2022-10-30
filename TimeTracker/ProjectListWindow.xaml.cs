@@ -44,6 +44,13 @@ namespace TimeTracker
             this.Close();
         }
 
+        private void New_Project_Click(object sender, RoutedEventArgs e)
+        {
+            var project = new Project();
+            ProjectAddForm paf = new ProjectAddForm();
+            paf.Show();
+        }
+
 
         private void Edit_ClickAction(object sender, RoutedEventArgs e)
         {

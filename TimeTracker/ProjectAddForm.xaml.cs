@@ -23,5 +23,10 @@ namespace TimeTracker
         {
             InitializeComponent();
         }
+
+        private void NewForm_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

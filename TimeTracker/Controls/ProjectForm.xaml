@@ -64,7 +64,7 @@
                 <TextBox.Text>
                     <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
-                            <validation:TextBoxValidation />
+                            <validation:TextBoxValidation AllowLineBreaks="False" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -96,6 +96,6 @@
             </TextBlock>
             <TextBlock Height="20" Padding="2"></TextBlock>
         </StackPanel>
-        <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="frmSubmit_Click">Submit</Button>
+        <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="frmSubmit_Click" Content="{Binding ButtonText, FallbackValue=Save Changes}"></Button>
     </Grid>
 </UserControl>

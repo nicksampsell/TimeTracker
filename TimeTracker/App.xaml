@@ -33,7 +33,7 @@
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel Orientation="Horizontal">
                 <AdornedElementPlaceholder />
-                <TextBlock x:Name="valDepartment" Style="{StaticResource FormIcon}" VerticalAlignment="Center" Height="Auto" Margin="5 0 0 0">
+                <TextBlock x:Name="valDepartment" Style="{StaticResource FormIcon}" VerticalAlignment="Center" Height="Auto" Margin="5 0 0 0" ToolTip="{DynamicResource}">
                 <Image Source="/Images/error.png" Height="20" Width="20"/>
                 </TextBlock>
             </StackPanel>

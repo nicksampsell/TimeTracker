@@ -31,6 +31,7 @@ namespace TimeTracker.Controls
         public bool IsCompleted { get; set; } = false;
         public Object Data { get; set; }
         public int Selection { get; set; }
+        public string ButtonText { get; set; } = "Save Changes";
 
         public delegate void MyControlClickEvent(object sender, RoutedEventArgs e);
         public event MyControlClickEvent OnButtonClick;
