@@ -41,7 +41,7 @@
                 <TextBox.Text>
                     <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
-                            <validation:TextBoxValidation AllowLineBreaks="False" AllowNumbers="False" AllowLetters="False" />
+                            <validation:TextBoxValidation AllowLineBreaks="False" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>

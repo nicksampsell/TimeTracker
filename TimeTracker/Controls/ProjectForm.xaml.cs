@@ -23,6 +23,7 @@ namespace TimeTracker.Controls
     /// </summary>
     public partial class ProjectForm : UserControl
     {
+        public string Id { get; set; }
         public string Title { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }

@@ -24,6 +24,7 @@ namespace TimeTracker
     {
         TimeTrackerContext db = new TimeTrackerContext();
         Project? currentItem;
+        private int? CurrentProjectId { get; set; }
 
         public ProjectEditForm(int? projectId = null)
         {
@@ -33,6 +34,10 @@ namespace TimeTracker
             {
                 this.Close();
             }
+
+            CurrentProjectId = projectId;
+
+            
 
             currentItem = db.Projects.Include(db2 => db2.Department).First(i => i.Id == projectId);
 
@@ -44,7 +49,17 @@ namespace TimeTracker
 
         private void Button_Click(object Sender, RoutedEventArgs e)
         {
-            //figure out how to update the entity
+
+            //This isn't updating, just deleting records.  Find out why
+
+
+            currentItem.Title = editForm.Title;
+            currentItem.Department = editForm.Department;
+            currentItem.Description = editForm.Description;
+            currentItem.AllocatedHours = editForm.AllocatedHours;
+            currentItem.IsCompleted = editForm.IsCompleted;
+            db.Update(currentItem);
+            db.SaveChanges();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeTracker.Models;
 
 namespace TimeTracker
 {
@@ -19,6 +20,8 @@ namespace TimeTracker
     /// </summary>
     public partial class ProjectAddForm : Window
     {
+        TimeTrackerContext db = new TimeTrackerContext();
+
         public ProjectAddForm()
         {
             InitializeComponent();
@@ -27,6 +30,22 @@ namespace TimeTracker
         private void NewForm_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object Sender, RoutedEventArgs e)
+        {
+            Project current = new()
+            {
+                Title = NewForm.Title,
+                DepartmentId = NewForm.Department.Id,
+                Description = NewForm.Description,
+                AllocatedHours = NewForm.AllocatedHours,
+                IsCompleted = NewForm.IsCompleted
+            };
+            db.Add(current);
+            db.SaveChanges();
+
+            this.Close();
         }
     }
 }
