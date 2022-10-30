@@ -24,13 +24,18 @@
                     <Setter Property="BorderBrush" Value="Red"></Setter>
                     <Setter Property="BorderThickness" Value="1"></Setter>
                 </Trigger>
-
             </Style.Triggers>
+        </Style>
+        <Style x:Key="FormIcon" TargetType="{x:Type TextBlock}">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
         </Style>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
-                <AdornedElementPlaceholder/>
+                <AdornedElementPlaceholder />
+                <TextBlock x:Name="valDepartment" Style="{StaticResource FormIcon}" VerticalAlignment="Center" Height="Auto" Margin="5 0 0 0">
+                <Image Source="/Images/error.png" Height="20" Width="20"/>
+                </TextBlock>
             </StackPanel>
         </ControlTemplate>
     </Application.Resources>

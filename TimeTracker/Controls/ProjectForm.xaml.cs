@@ -55,5 +55,9 @@ namespace TimeTracker.Controls
             this.OnButtonClick?.Invoke(sender, e);
         }
 
+        private void frmTitle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,18 @@
              xmlns:validation="clr-namespace:TimeTracker.FormValidation" 
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="450">
+    <UserControl.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="0 5 0 0"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="Height" Value="Auto"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="Auto"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"></ColumnDefinition>
@@ -22,57 +34,68 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Target="{Binding ElementName=frmTitle}">Project Title:</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                 Width="300" x:Name="frmTitle" 
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Width="Auto" Height="Auto">
+            <TextBox x:Name="frmTitle" Width="280"
                  Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
                  Style="{StaticResource TextBoxInError}">
-            <TextBox.Text>
-                <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validation:TextBoxValidation AllowLineBreaks="False" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
+                <TextBox.Text>
+                    <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:TextBoxValidation AllowLineBreaks="False" AllowNumbers="False" AllowLetters="False" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Height="20" Padding="2"></TextBlock>
+        </StackPanel>
 
         <Label Grid.Row="1" Target="{Binding ElementName=frmDepartment}">Department:</Label>
-        <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" 
-                  HorizontalAlignment="Left" Width="300" x:Name="frmDepartment" 
-                  SelectedValue="{Binding Department}">
-        </ComboBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+            <ComboBox Width="280" HorizontalAlignment="Left" x:Name="frmDepartment" SelectedValue="{Binding Department}"></ComboBox>
+            <TextBlock Height="20" Padding="2"></TextBlock>
+        </StackPanel>
 
-        <Label Grid.Row="2" Target="{Binding ElementName=frmDescription}">Project Description:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" Height="100" 
+        <Label Grid.Row="2" Target="{Binding ElementName=frmDescription}" VerticalAlignment="Top" Margin="0 6 0 0">Project Description:</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <TextBox Grid.Row="2" Width="280" Height="100" 
                  TextWrapping="WrapWithOverflow" AcceptsReturn="True" x:Name="frmDescription"
             Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
                  Style="{StaticResource TextBoxInError}">
-            <TextBox.Text>
-                <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validation:TextBoxValidation />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
+                <TextBox.Text>
+                    <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:TextBoxValidation />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Height="20" Padding="2"></TextBlock>
+        </StackPanel>
 
         <Label Grid.Row="3" Target="{Binding ElementName=frmAllocatedHours}">Allocated Hours:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" x:Name="frmAllocatedHours"
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+            <TextBox Width="280" x:Name="frmAllocatedHours"
         Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
         Style="{StaticResource TextBoxInError}">
-            <TextBox.Text>
-                <Binding Path="AllocatedHours" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validation:TextBoxValidation AllowLetters="False" AllowLineBreaks="False" AllowSpaces="False" AllowSpecialChars="False" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-
+                <TextBox.Text>
+                    <Binding Path="AllocatedHours" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:TextBoxValidation AllowLetters="False" AllowLineBreaks="False" AllowSpaces="False" AllowSpecialChars="False" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Height="20" Padding="2"></TextBlock>
+        </StackPanel>
 
 
         <Label Grid.Row="4" Target="{Binding ElementName=frmIsCompleted}">Is Completed?:</Label>
-        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="frmIsCompleted" Content="Yes" IsChecked="{Binding IsCompleted}"/>
-
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+            <TextBlock Width="280" VerticalAlignment="Center">
+            <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="frmIsCompleted" Content="Yes" IsChecked="{Binding IsCompleted}"/>
+            </TextBlock>
+            <TextBlock Height="20" Padding="2"></TextBlock>
+        </StackPanel>
         <Button x:Name="frmSubmit" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="frmSubmit_Click">Submit</Button>
     </Grid>
 </UserControl>
