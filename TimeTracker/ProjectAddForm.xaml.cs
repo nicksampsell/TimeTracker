@@ -45,6 +45,8 @@ namespace TimeTracker
             db.Add(current);
             db.SaveChanges();
 
+            //Window ProjectListWindow.lvProjects.Items.Refresh();
+
             this.Close();
         }
     }

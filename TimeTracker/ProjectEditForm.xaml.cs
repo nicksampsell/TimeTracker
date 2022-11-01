@@ -52,7 +52,7 @@ namespace TimeTracker
 
             //This isn't updating, just deleting records.  Find out why
 
-
+            currentItem.Id = editForm.Id;
             currentItem.Title = editForm.Title;
             currentItem.Department = editForm.Department;
             currentItem.Description = editForm.Description;
